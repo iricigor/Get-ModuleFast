@@ -6,7 +6,7 @@ $ModuleManifests.Count # 929
 $GoodManifest = $ModuleManifests.FullName | Test-SameAncestor -CaseInsensitive
 $GoodManifest.Count # 778
 
-$Modules = Get-Module -ListAvailable
+$Modules = Get-Module -ListAvailable # 19 seconds!
 $Modules.Count # 732
 
 $MissingModules = $GoodManifest | where {$_ -notin $Modules.Path}
