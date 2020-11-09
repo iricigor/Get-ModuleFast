@@ -14,3 +14,5 @@ Current version on my PC is running about 30 times faster than `Get-Module -List
 - Convert script to run also on PS5 and on Linux
 - Add switch to include additional properties
 - Rename function to Get-ModuleList
+- Add parameter Name
+- Publish it to PS Gallery as script?
