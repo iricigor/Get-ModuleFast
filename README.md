@@ -34,6 +34,7 @@ Once both are done, you will be able to check if there are modules on your syste
 
 [![Build status](https://dev.azure.com/iiric/azmi/_apis/build/status/Run%20Pester%20Tests)](https://dev.azure.com/iiric/azmi/_build/latest?definitionId=34)
 ![](https://img.shields.io/azure-devops/tests/iiric/azmi/34)
+![](https://img.shields.io/azure-devops/coverage/iiric/azmi/34)
 
 *Click on image to see details.*
 
