@@ -1,5 +1,7 @@
 BeforeAll {
 
+    Write-Host "Before All block"
+
     $ModuleName = 'Get-ModuleFast'
     $ModuleManifest = Join-Path $PSScriptRoot '..' "$ModuleName.psd1"
     Import-Module $ModuleManifest -Force
@@ -30,9 +32,9 @@ Describe 'Proper import tests' {
 
 Describe 'Functionality tests' {
     It 'returns same module paths as original command' {
-        $Modules = Get-Module -ListAvailable
         $MyModules = $null
         $MyModules = Get-ModulesFast #-Verbose
+        $Modules = Get-Module -ListAvailable
 
         $MyModules.Count | Should -Be $Modules.Count
         ($MyModules | where Path -notin $Modules.Path | select -Expand Path).Count | Should -Be 0
