@@ -1,7 +1,8 @@
 BeforeAll {
 
     $ModuleName = 'Get-ModuleFast'
-    Import-Module (Join-Path $PSScriptRoot '..' "$ModuleName.psd1") -Force
+    $ModuleManifest = Join-Path $PSScriptRoot '..' "$ModuleName.psd1"
+    Import-Module $ModuleManifest -Force
 }
 
 Describe 'Fake-Test' {
@@ -10,13 +11,22 @@ Describe 'Fake-Test' {
     }
 }
 
-Describe 'Proper import tests' {
+InModuleScope $ModuleName Describe 'Proper import tests' {
+
+    It 'finds module manifest' {
+        Get-Item $ModuleManifest | Should -Not -BeNullOrEmpty
+    }
+
+    It 'has module imported' {
+        Get-Module $ModuleName | Should -Not -BeNullOrEmpty
+    }
+
     It 'returns commands from the module' {
         Get-Command -Module $ModuleName | Should -Not -BeNullOrEmpty
     }
 }
 
-Describe 'Functionality tests' {
+InModuleScope $ModuleName Describe 'Functionality tests' {
     It 'returns same module paths as original command' {
         $Modules = Get-Module -ListAvailable
         $MyModules = $null
