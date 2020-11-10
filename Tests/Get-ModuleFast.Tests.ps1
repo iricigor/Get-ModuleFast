@@ -10,6 +10,12 @@ Describe 'Fake-Test' {
     }
 }
 
+Describe 'Proper import tests' {
+    It 'returns commands from the module' {
+        Get-Command -Module $ModuleName | Should -Not -BeNullOrEmpty
+    }
+}
+
 Describe 'Functionality tests' {
     It 'returns same module paths as original command' {
         $Modules = Get-Module -ListAvailable
