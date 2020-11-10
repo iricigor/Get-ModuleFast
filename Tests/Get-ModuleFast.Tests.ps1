@@ -11,13 +11,15 @@ Describe 'Fake-Test' {
     }
 }
 
-InModuleScope $ModuleName Describe 'Proper import tests' {
+Describe 'Proper import tests' {
 
     It 'finds module manifest' {
+        $ModuleManifest | Should -Not -BeNullOrEmpty
         Get-Item $ModuleManifest | Should -Not -BeNullOrEmpty
     }
 
     It 'has module imported' {
+        $ModuleName | Should -Not -BeNullOrEmpty
         Get-Module $ModuleName | Should -Not -BeNullOrEmpty
     }
 
@@ -26,7 +28,7 @@ InModuleScope $ModuleName Describe 'Proper import tests' {
     }
 }
 
-InModuleScope $ModuleName Describe 'Functionality tests' {
+Describe 'Functionality tests' {
     It 'returns same module paths as original command' {
         $Modules = Get-Module -ListAvailable
         $MyModules = $null
