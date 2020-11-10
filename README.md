@@ -30,7 +30,14 @@ Once both are done, you will be able to check if there are modules on your syste
 - Add parameter Name
 - Publish it to PS Gallery as script?
 
-## Badges
+## Test pipeline status
+
+[![Build status](https://dev.azure.com/iiric/azmi/_apis/build/status/Run%20Pester%20Tests)](https://dev.azure.com/iiric/azmi/_build/latest?definitionId=34)
+
+*Click on image to see details.*
+
+## Other Badges
+
 ![](https://img.shields.io/github/languages/count/iricigor/Get-ModuleFast)
 ![](https://img.shields.io/github/languages/top/iricigor/Get-ModuleFast)
 
