@@ -1,5 +1,8 @@
 function Get-ModulesFast {
 
+    [CmdletBinding()]
+    param ()
+
     # processing
     $EnvFolders = $env:PSModulePath -split ';'
     foreach ($F1 in $EnvFolders) {
@@ -15,7 +18,7 @@ function Get-ModulesFast {
             $Split = $M1.FullName.Substring($F1.Length+1) -split '\\'
             $FirstFolder = $Split.Count -eq 1 ? $M1.Directory.Name : $Split[0]
 
-            if ($ModuleName -ne $FirstFolder) {return}
+            if ($ModuleName -ne $FirstFolder) {continue}
 
             # prepare return object, but do not return it yet!
             $RetValue = [PSCustomObject]@{
@@ -34,6 +37,6 @@ function Get-ModulesFast {
                     $RetValue
                 }
             }
-        }
-    }
+        } # end foreach $Manifest
+    } # end foreach $EnvFolder
 }

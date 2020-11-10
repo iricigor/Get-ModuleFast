@@ -43,6 +43,7 @@ $MissingModules | % {
 Import-Module .\Get-ModuleFast.psm1 -Force
 Measure-Command { Get-ModulesFast} # should be under 1 second
 Measure-Command { 1..10 | % {Get-ModulesFast}}
+$MyModules = $null
 $MyModules = Get-ModulesFast #-Verbose
 $MyModules.Count
 $Modules.Count
