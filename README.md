@@ -16,3 +16,11 @@ Current version on my PC is running about 30 times faster than `Get-Module -List
 - Rename function to Get-ModuleList
 - Add parameter Name
 - Publish it to PS Gallery as script?
+
+## Badges
+![](https://img.shields.io/github/languages/count/iricigor/Get-ModuleFast)
+![](https://img.shields.io/github/languages/top/iricigor/Get-ModuleFast)
+
+![](https://img.shields.io/github/last-commit/iricigor/Get-ModuleFast)
+![](https://img.shields.io/github/languages/code-size/iricigor/Get-ModuleFast)
+![](https://img.shields.io/github/repo-size/iricigor/Get-ModuleFast)
