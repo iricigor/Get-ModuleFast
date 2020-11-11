@@ -5,7 +5,9 @@ function Get-ModulesFast {
 
     # processing
     $EnvFolders = $env:PSModulePath -split ';'
-    foreach ($F1 in $EnvFolders) {
+    #foreach ($F1 in $EnvFolders) {
+    $EnvFolders | ForEach-Object -Parallel {
+        $F1 = $_
 
         $WinFolder = $F1.ToUpper().StartsWith((Join-Path $Env:SystemRoot '\System32\WindowsPowerShell\v1.0\Modules').ToUpper())
         $F1 = $F1.TrimEnd('\')

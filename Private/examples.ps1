@@ -40,15 +40,16 @@ $MissingModules | % {
 #
 
 
-Import-Module .\Get-ModuleFast.psm1 -Force
+Import-Module .\Get-ModuleFast.psd1 -Force
 Measure-Command { Get-ModulesFast} # should be under 1 second
-Measure-Command { 1..10 | % {Get-ModulesFast}}
+Measure-Command { 1..10 | % {Get-ModulesFast}} | Select TotalSeconds
 $MyModules = $null
 $MyModules = Get-ModulesFast #-Verbose
 $MyModules.Count
+#$Modules = Get-Module -ListAvailable
 $Modules.Count
 
-# just counts
+# just counts, should be zero on both
 ($MyModules | where Path -notin $Modules.Path | select -Expand Path).Count
 ($Modules | where Path -notin $MyModules.Path | select -Expand Path).Count
 
@@ -94,3 +95,13 @@ $Modules | where Path -notin $MyModules.Path | select -Expand Path
 
 #   if we use "gci | %" it goes to 0.8-0.9 seconds!
 #   therefore we use "foreach ($v in gci) {}"
+
+
+#
+# Wednesday, November 11th
+#
+
+# Comparing foreach, foreach-object and foreach-object parallel
+#    foreach runs   540-620 msec
+#    foreach-object 700-800 msec
+#    f-o parallel   520-580 msec

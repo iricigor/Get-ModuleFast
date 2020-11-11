@@ -29,6 +29,7 @@ Once both are done, you will be able to check if there are modules on your syste
 - Rename function to Get-ModuleList
 - Add parameter Name
 - Publish it to PS Gallery as script?
+- Try parallel foreach operations
 
 ## Test pipeline status
 
