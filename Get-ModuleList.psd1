@@ -9,13 +9,13 @@
 @{
 
 # Script module or binary module file associated with this manifest.
-RootModule = 'Get-ModuleFast.psm1'
+RootModule = 'Get-ModuleList.psm1'
 
 # Version number of this module.
 ModuleVersion = '0.0.1'
 
 # Supported PSEditions
-# CompatiblePSEditions = @()
+CompatiblePSEditions = @()
 
 # ID used to uniquely identify this module
 GUID = '564ed814-7c44-44b2-af54-a7f0e9cb6182'
@@ -24,7 +24,7 @@ GUID = '564ed814-7c44-44b2-af54-a7f0e9cb6182'
 Author = 'iiric'
 
 # Company or vendor of this module
-CompanyName = 'Unknown'
+# CompanyName = 'Unknown'
 
 # Copyright statement for this module
 Copyright = '(c) iiric. All rights reserved.'

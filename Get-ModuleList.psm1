@@ -4,4 +4,4 @@ foreach ($FunctionFile in (Get-ChildItem Public -Filter '*.ps1')) {
     . ($FunctionFile.FullName)
 }
 
-Export-ModuleMember -Function 'Get-ModulesFast'
+Export-ModuleMember -Function 'Get-ModuleList'
