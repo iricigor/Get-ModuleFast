@@ -4,12 +4,12 @@ function Get-ModuleList {
     param ()
 
     # processing
-    $EnvFolders = $env:PSModulePath -split ';'
+    $EnvFolders = $IsLinux ? $env:PSModulePath -split ':' : $env:PSModulePath -split ';'
     #foreach ($F1 in $EnvFolders) {
     $EnvFolders | ForEach-Object -Parallel {
         $F1 = $_
 
-        $WinFolder = $F1.ToUpper().StartsWith((Join-Path $Env:SystemRoot '\System32\WindowsPowerShell\v1.0\Modules').ToUpper())
+        $WinFolder = ($Env:SystemRoot) -and ($F1.ToUpper().StartsWith((Join-Path $Env:SystemRoot '\System32\WindowsPowerShell\v1.0\Modules').ToUpper()))
         $F1 = $F1.TrimEnd('\')
         $Manifests = Get-ChildItem $F1 -Filter '*.psd1' -Depth 2 -Recurse -ea 0
 

@@ -15,13 +15,15 @@ Describe 'Fake-Test' {
 
 Describe 'Proper import tests' {
 
-    It 'finds module manifest' {
+    It 'reads module variable' {
         $ModuleManifest | Should -Not -BeNullOrEmpty
+    }
+
+    It 'finds module manifest' {
         Get-Item $ModuleManifest | Should -Not -BeNullOrEmpty
     }
 
     It 'has module imported' {
-        $ModuleName | Should -Not -BeNullOrEmpty
         Get-Module $ModuleName | Should -Not -BeNullOrEmpty
     }
 
