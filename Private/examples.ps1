@@ -40,11 +40,11 @@ $MissingModules | % {
 #
 
 
-Import-Module .\Get-ModuleFast.psd1 -Force
-Measure-Command { Get-ModulesFast} # should be under 1 second
-Measure-Command { 1..10 | % {Get-ModulesFast}} | Select TotalSeconds
+Import-Module .\Get-ModuleList.psd1 -Force
+Measure-Command { Get-ModuleList} # should be under 1 second
+Measure-Command { 1..10 | % {Get-ModulesList}} | Select TotalSeconds
 $MyModules = $null
-$MyModules = Get-ModulesFast #-Verbose
+$MyModules = Get-ModuleList #-Verbose
 $MyModules.Count
 #$Modules = Get-Module -ListAvailable
 $Modules.Count

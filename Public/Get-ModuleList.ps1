@@ -4,12 +4,12 @@ function Get-ModuleList {
     param ()
 
     # processing
-    $EnvFolders = $env:PSModulePath -split ';'
+    $EnvFolders = $env:PSModulePath -split [io.path]::PathSeparator
     #foreach ($F1 in $EnvFolders) {
     $EnvFolders | ForEach-Object -Parallel {
         $F1 = $_
 
-        $WinFolder = $F1.ToUpper().StartsWith((Join-Path $Env:SystemRoot '\System32\WindowsPowerShell\v1.0\Modules').ToUpper())
+        $WinFolder = ($Env:SystemRoot) -and ($F1.ToUpper().StartsWith((Join-Path $Env:SystemRoot '\System32\WindowsPowerShell\v1.0\Modules').ToUpper()))
         $F1 = $F1.TrimEnd('\')
         $Manifests = Get-ChildItem $F1 -Filter '*.psd1' -Depth 2 -Recurse -ea 0
 
@@ -17,7 +17,7 @@ function Get-ModuleList {
 
             # path manipulation
             $ModuleName = Split-Path $M1 -LeafBase
-            $Split = $M1.FullName.Substring($F1.Length+1) -split '\\'
+            $Split = $M1.FullName.Substring($F1.Length+1) -split [regex]::Escape([io.path]::DirectorySeparatorChar)
             $FirstFolder = $Split.Count -eq 1 ? $M1.Directory.Name : $Split[0]
 
             if ($ModuleName -ne $FirstFolder) {continue}
