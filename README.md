@@ -24,12 +24,12 @@ Once both are done, you will be able to check if there are modules on your syste
 
 
 ## Further ideas
-- Convert script to run also on PS5 and on Linux
-- Add switch to include additional properties
-- Rename function to Get-ModuleList
-- Add parameter Name
-- Publish it to PS Gallery as script?
-- Try parallel foreach operations
+- [ ] Convert script to run also on PS5 and on Linux
+- [ ] Add switch to include additional properties
+- [x] Rename function to Get-ModuleList
+- [ ] Add parameter Name
+- [ ] Publish it to PS Gallery as script?
+- [x] Try parallel foreach operations
 
 ## Test pipeline status
 

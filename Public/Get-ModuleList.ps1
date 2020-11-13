@@ -1,4 +1,4 @@
-function Get-ModulesFast {
+function Get-ModuleList {
 
     [CmdletBinding()]
     param ()
