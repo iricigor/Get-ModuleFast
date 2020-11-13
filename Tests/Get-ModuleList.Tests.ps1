@@ -51,3 +51,35 @@ Describe 'Speed tests' {
     }
 }
 
+Describe 'Name parameter' {
+
+    It 'returns nothing for non-existing module' {
+        Get-ModuleList -Name 'non-existing-module' | Should -BeNullOrEmpty
+    }
+
+    It 'returns the the same number of Pester modules' {
+        $MyModules = Get-ModuleList -Name Pester
+        $Modules = Get-Module Pester -List
+        $MyModules.Count | Should -Be ($Modules.Count)
+    }
+
+    It 'returns the the same number of first module' {
+        $Module1 = Get-Module -List | Select -First 1 -Expand Name
+
+        $MyModules = Get-ModuleList -Name $Module1
+        $Modules = Get-Module $Module1 -List
+
+        $MyModules.Count | Should -Be ($Modules.Count)
+    }
+
+    It 'accepts pipeline input' {
+        $Module1 = Get-Module -List | Select -First 1 -Expand Name
+
+        $MyModules = Get-ModuleList -Name $Module1
+        $Modules = Get-Module $Module1 -List
+
+        $MyModules.Count | Should -Be ($Modules.Count)
+    }
+
+}
+

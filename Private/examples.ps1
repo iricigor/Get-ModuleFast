@@ -105,3 +105,26 @@ $Modules | where Path -notin $MyModules.Path | select -Expand Path
 #    foreach runs   540-620 msec
 #    foreach-object 700-800 msec
 #    f-o parallel   520-580 msec
+
+
+
+#
+# Friday, November 13th
+#
+
+$EnvFolders = $env:PSModulePath -split [io.path]::PathSeparator
+$Names = @('Az','Pester')
+
+(Measure-Command {foreach ($N1 in $Names) {
+    foreach ($F1 in $EnvFolders) {
+        Get-ChildItem $F1 -Filter "$N1.psd1" -Depth 2 -Recurse -ea 0 | Select -Expand FullName
+    }
+}}).TotalMilliseconds
+
+
+(Measure-Command {
+    $Manifests = foreach ($F1 in $EnvFolders) {
+        Get-ChildItem $F1 -Filter "*.psd1" -Depth 2 -Recurse -ea 0
+    }
+    $Manifests | ? BaseName -in $Names | Select -Expand FullName
+}).TotalMilliseconds
