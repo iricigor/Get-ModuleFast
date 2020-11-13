@@ -30,7 +30,7 @@ Once both are done, you will be able to check if there are modules on your syste
 - [x] Add parameter Name
 - [ ] Publish it to PS Gallery as script?
 - [x] Try parallel foreach operations
-- [ ] Put Invoke-Pester in code (currently inline in ADO pipeline)
+- [x] Put Invoke-Pester in code (currently inline in ADO pipeline)
 
 ## Test pipeline status
 
