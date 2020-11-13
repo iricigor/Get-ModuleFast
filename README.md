@@ -27,7 +27,7 @@ Once both are done, you will be able to check if there are modules on your syste
 - [x] Convert script to run also on ~~PS5 and on~~ Linux
 - [ ] Add switch to include additional properties
 - [x] Rename function to Get-ModuleList
-- [ ] Add parameter Name
+- [x] Add parameter Name
 - [ ] Publish it to PS Gallery as script?
 - [x] Try parallel foreach operations
 - [ ] Put Invoke-Pester in code (currently inline in ADO pipeline)
