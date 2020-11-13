@@ -4,7 +4,7 @@ function Get-ModuleList {
     param ()
 
     # processing
-    $EnvFolders = $IsLinux ? $env:PSModulePath -split ':' : $env:PSModulePath -split ';'
+    $EnvFolders = $env:PSModulePath -split [io.path]::PathSeparator
     #foreach ($F1 in $EnvFolders) {
     $EnvFolders | ForEach-Object -Parallel {
         $F1 = $_
@@ -17,7 +17,7 @@ function Get-ModuleList {
 
             # path manipulation
             $ModuleName = Split-Path $M1 -LeafBase
-            $Split = $M1.FullName.Substring($F1.Length+1) -split '\\'
+            $Split = $M1.FullName.Substring($F1.Length+1) -split [regex]::Escape([io.path]::DirectorySeparatorChar)
             $FirstFolder = $Split.Count -eq 1 ? $M1.Directory.Name : $Split[0]
 
             if ($ModuleName -ne $FirstFolder) {continue}
