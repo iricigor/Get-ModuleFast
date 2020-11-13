@@ -2,7 +2,7 @@
 Currently get-module command is very expensive. This is experiment in trying to make it fast.
 
 ## Current state
-Current version on my PC is running about 30 times faster than `Get-Module -ListAvailable`, but it still returns all the same modules!
+Current version on my Windows PC is running about 30 times faster than `Get-Module -ListAvailable`, but it still returns all the same modules!
 
 ## Issues
 - script is now running only on PS7 on Windows
