@@ -15,7 +15,7 @@ RootModule = 'Get-ModuleList.psm1'
 ModuleVersion = '0.0.1'
 
 # Supported PSEditions
-CompatiblePSEditions = @()
+CompatiblePSEditions = @('Core')
 
 # ID used to uniquely identify this module
 GUID = '564ed814-7c44-44b2-af54-a7f0e9cb6182'
