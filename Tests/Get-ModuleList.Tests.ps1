@@ -73,10 +73,10 @@ Describe 'Name parameter' {
     }
 
     It 'accepts pipeline input' {
-        $Module1 = Get-Module -List | Select -First 1 -Expand Name
+        $Module1 = Get-Module -List | ? Name -ne 'Pester' | Select -First 1 -Expand Name
 
-        $MyModules = Get-ModuleList -Name $Module1
-        $Modules = Get-Module $Module1 -List
+        $MyModules = @($Module1, 'Pester') | Get-ModuleList
+        $Modules = Get-Module $Module1,'Pester' -List
 
         $MyModules.Count | Should -Be ($Modules.Count)
     }
