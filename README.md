@@ -30,8 +30,11 @@ Once both are done, you will be able to check if there are modules on your syste
 - [ ] Add parameter Name
 - [ ] Publish it to PS Gallery as script?
 - [x] Try parallel foreach operations
+- [ ] Put Invoke-Pester in code (currently inline in ADO pipeline)
 
 ## Test pipeline status
+
+Testing pipeline is running on three different OS versions - Windows, Linux and MacOS.
 
 [![Build status](https://dev.azure.com/iiric/azmi/_apis/build/status/Run%20Pester%20Tests)](https://dev.azure.com/iiric/azmi/_build/latest?definitionId=34)
 ![](https://img.shields.io/azure-devops/tests/iiric/azmi/34)
