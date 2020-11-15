@@ -17,7 +17,7 @@ This workflow should run fast:
 - check if they can be updated
 
 With current updates in PowerShell Get v3, it is expected to enable second step to run fast.
-Alternatively, one can use [`psaptgetupdate`](https://github.com/iricigor/psaptgetupdate) module which already has that fast functionality.
+Alternatively, one can use `psaptgetupdate` ([link](https://github.com/iricigor/psaptgetupdate)) module which already has that fast functionality.
 
 This project is trying also to enable first step to run fast.
 Once both are done, you will be able to check if there are modules on your system that needs update **in less than a second!**
